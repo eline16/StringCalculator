@@ -66,4 +66,10 @@ public class CalculatorTest
 		}
 	}
 
+	@Test
+	public void testLargeNumberIgnored()
+	{
+		assertEquals(2, Calculator.add("1001,2"));
+	}
+
 }

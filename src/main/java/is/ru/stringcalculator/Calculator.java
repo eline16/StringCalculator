@@ -33,7 +33,13 @@ public class Calculator
 			{
 				negatives.add(toInt(number));
 			}
-			total = total + toInt(number);
+			else if(toInt(number) < 1001)
+			{
+				total = total + toInt(number);
+			}
+			else
+			{
+			}
 		}
 
 		if(!negatives.isEmpty())
