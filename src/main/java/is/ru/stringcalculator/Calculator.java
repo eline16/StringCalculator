@@ -27,6 +27,10 @@ public class Calculator
 		int total  = 0;
 		for(String number : numbers)
 		{
+			if(toInt(number) < 0)
+			{
+				throw new IllegalArgumentException ("Negatives not allowed");
+			}
 			total = total + toInt(number);
 		}
 		return total;
