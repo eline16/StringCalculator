@@ -41,12 +41,12 @@ public class CalculatorTest
 	{
 		try
 		{
-			Calculator.add("-1, 3, 1");
+			Calculator.add("-1,3,1");
 			Assert.fail();
 		}
 		catch (Exception e)
 		{
-			String messageExpected = "Negatives not allowed";
+			String messageExpected = "Negatives not allowed: -1";
 			assertEquals(messageExpected, e.getMessage());
 		}
 	}
@@ -56,12 +56,12 @@ public class CalculatorTest
 	{
 		try
 		{
-			Calculator.add("-1, -2, 9, -3");
+			Calculator.add("-1,-2,9,-3");
 			Assert.fail();
 		}
 		catch (Exception e)
 		{
-			String messageExpected = "Negatives not allowed";
+			String messageExpected = "Negatives not allowed: -1,-2,-3";
 			assertEquals(messageExpected, e.getMessage());
 		}
 	}
