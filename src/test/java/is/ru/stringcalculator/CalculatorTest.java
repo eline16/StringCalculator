@@ -78,4 +78,16 @@ public class CalculatorTest
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
 
+	@Test
+	public void testDelimiterChangeAndOriginal()
+	{
+		assertEquals(7, Calculator.add("//;\n1;2,4"));
+	}
+
+	@Test
+	public void testDelimiterChangeAndOriginal2()
+	{
+		assertEquals(12, Calculator.add("//;\n1;2,4\n5"));
+	}
+
 }

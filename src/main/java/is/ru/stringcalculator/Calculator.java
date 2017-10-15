@@ -31,12 +31,15 @@ public class Calculator
 		}
 		else
 		{
+			String originalDelimiters = ",|\n";
 			String delimiter = "";
+			String finalDelimiter = "";
 			int endOfDelimiterIndex = text.indexOf("\n");
 					
 			delimiter = text.substring(2, endOfDelimiterIndex);
+			finalDelimiter = originalDelimiters + "|" + delimiter;
 			String newText = text.substring(endOfDelimiterIndex + 1, text.length());
-			numbers = newText.split(delimiter);
+			numbers = newText.split(finalDelimiter);
 		}
 		return numbers;
 	}
