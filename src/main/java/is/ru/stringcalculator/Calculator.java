@@ -41,24 +41,28 @@ public class Calculator
 			{
 			}
 		}
-
-		if(!negatives.isEmpty())
-			{
-				String messageAddOn = "";
-				for(int negative : negatives)
-				{
-					int lastElementIndex = negatives.size() - 1;
-					if(negative == negatives.get(lastElementIndex))
-					{
-						messageAddOn = messageAddOn + String.valueOf(negative);
-					}
-					else
-					{
-						messageAddOn = messageAddOn + String.valueOf(negative) + ",";
-					}
-				}
-				throw new IllegalArgumentException ("Negatives not allowed: " + messageAddOn);
-			}
+		negativeCheck(negatives);
 		return total;
+	}
+
+	private static void negativeCheck(ArrayList<Integer> negatives)
+	{
+		if(!negatives.isEmpty())
+		{
+			String messageAddOn = "";
+			for(int negative : negatives)
+			{
+				int lastElementIndex = negatives.size() - 1;
+				if(negative == negatives.get(lastElementIndex))
+				{
+					messageAddOn = messageAddOn + String.valueOf(negative);
+				}
+				else
+				{
+					messageAddOn = messageAddOn + String.valueOf(negative) + ",";
+				}
+			}
+			throw new IllegalArgumentException ("Negatives not allowed: " + messageAddOn);
+		}
 	}
 }
