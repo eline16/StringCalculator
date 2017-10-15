@@ -9,9 +9,23 @@ public class Calculator
 			return 0;
 		else
 		{
-			if(text.contains(",") | text.contains("\n"))
+			if(text.contains(",") | text.contains("\n") | text.contains("//"))
 			{
-				String numbers[] = text.split(",|\n");
+				String numbers[];
+				if(!text.startsWith("//"))
+				{
+					numbers = text.split(",|\n");
+				}
+				else
+				{
+					String delimiter = "";
+					int endOfDelimiterIndex = text.indexOf("\n");
+					
+					delimiter = text.substring(2, endOfDelimiterIndex);
+					String newText = text.substring(endOfDelimiterIndex + 1, text.length());
+					numbers = newText.split(delimiter);
+				}
+				
 				return sum(numbers);
 			}
 			return 1;
