@@ -9,27 +9,41 @@ public class Calculator
 			return 0;
 		else
 		{
-			if(text.contains(",") | text.contains("\n") | text.contains("//"))
+			if(shouldSplit(text))
 			{
 				String numbers[];
-				if(!text.startsWith("//"))
-				{
-					numbers = text.split(",|\n");
-				}
-				else
-				{
-					String delimiter = "";
-					int endOfDelimiterIndex = text.indexOf("\n");
-					
-					delimiter = text.substring(2, endOfDelimiterIndex);
-					String newText = text.substring(endOfDelimiterIndex + 1, text.length());
-					numbers = newText.split(delimiter);
-				}
-				
+				numbers = splitIntoNumbers(text);
 				return sum(numbers);
 			}
-			return 1;
+			else
+			{
+				return toInt(text);
+			}
 		}
+	}
+
+	private static String[] splitIntoNumbers(String text)
+	{
+		String numbers[];
+		if(!text.startsWith("//"))
+		{
+			numbers = text.split(",|\n");
+		}
+		else
+		{
+			String delimiter = "";
+			int endOfDelimiterIndex = text.indexOf("\n");
+					
+			delimiter = text.substring(2, endOfDelimiterIndex);
+			String newText = text.substring(endOfDelimiterIndex + 1, text.length());
+			numbers = newText.split(delimiter);
+		}
+		return numbers;
+	}
+
+	private static boolean shouldSplit (String text)
+	{
+		return text.contains(",") | text.contains("\n") | text.contains("//");
 	}
 
 	private static int toInt(String number)
